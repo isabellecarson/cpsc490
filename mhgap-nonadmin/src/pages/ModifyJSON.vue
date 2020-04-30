@@ -69,7 +69,7 @@
             <div class="row q-gutter-sm" v-show="this.showSteps === true">
               <div class="q-gutter-sm">
                 <h6 class="body-font" v-for="(n, index) in (numberOfSteps)" v-bind:key='index'>
-                  Step {{n}}: {{questions[n - 1]}}
+                  Step {{n}}: {{question[n - 1]}}
                   <p v-for="item in tips[n-1]" v-bind:key='item'>{{item}}</p>
                 </h6>
               </div>
@@ -88,7 +88,7 @@
             <h6 class="body-font">Step {{this.numberOfSteps + 1}}</h6>
             <div class="row q-gutter-sm">
               <div class="q-gutter-sm">
-                <q-input clearable square outlined style="width: 400px" color="blue-12" v-model="question" id="question" label="Question *" lazy-rules
+                <q-input clearable square outlined style="width: 400px" color="blue-12" v-model="tmpquestion" id="tmpquestion" label="Question *" lazy-rules
                   :rules="[ val => val && val.length > 0 || 'Please type a question']"></q-input>
               </div>
             </div>
@@ -246,10 +246,10 @@ export default {
       oldjson: null,
 
       /* protocol data */
-      tmpName: '',
-      tmpTitle: '',
+      tmpName: null,
+      tmpTitle: null,
       title: [],
-      tmpProtocolTip: '',
+      tmpProtocolTip: null,
       protocolTip: [],
       protocolTipSet: [],
       numberOfProtocols: 0,
@@ -266,18 +266,18 @@ export default {
       ],
 
       /* step data */
-      question: '',
+      tmpquestion: null,
       tip: [],
-      tmpTip: '',
+      tmpTip: null,
       tmpYes: true,
       tmpNo: true,
       tmpSubmit: false,
       tmpProtocol: false,
-      tmpTrue: '',
-      tmpFalse: '',
+      tmpTrue: null,
+      tmpFalse: null,
       tmpEditable: true,
       numberOfSteps: 0,
-      questions: [
+      question: [
       ],
       tips: [
       ],
@@ -417,8 +417,12 @@ export default {
       /* adds steps to json */
       for (var i = 0; i < this.numberOfSteps; i++) {
         var Obj = {}
-        Obj.questions = this.questions[i]
-        Obj.tips = this.tips[i]
+        Obj.question = this.question[i]
+        if (this.tips[i][0] === null) {
+          Obj.tips = null
+        } else {
+          Obj.tips = this.tips[i]
+        }
         Obj.yesButton = this.yesButton[i]
         Obj.noButton = this.noButton[i]
         Obj.nextSubmit = this.nextSubmit[i]
@@ -454,6 +458,7 @@ export default {
 
       this.json = this.oldjson
       this.json[this.disorder] = result
+      console.log(JSON.stringify(this.json, null, 2))
 
       /* uploads json to database */
       const url = new URL('https://fierce-savannah-61378.herokuapp.com/modifyJson')
@@ -477,40 +482,44 @@ export default {
     addTip () {
       if (this.setProtocols === true) {
         this.protocolTip = this.protocolTip.concat(this.tmpProtocolTip)
-        this.tmpProtocolTip = ''
+        this.tmpProtocolTip = null
       } else {
         this.tip = this.tip.concat(this.tmpTip)
-        this.tmpTip = ''
+        this.tmpTip = null
       }
     },
     /* adds another point to a protocol */
     addPoint () {
       this.tmpInstructionCount = this.tmpInstructionCount + 1
       this.title = this.title.concat(this.tmpTitle)
-      this.tmpTitle = ''
+      this.tmpTitle = null
       this.addTip()
-      this.protocolTipSet.push(this.protocolTip)
+      if (this.protocolTip[0] === null) {
+        this.protocolTipSet.push(null)
+      } else {
+        this.protocolTipSet.push(this.protocolTip)
+      }
       this.protocolTip = []
     },
     /* resets data for step that is currently being added */
     resetData () {
-      this.tmpName = ''
-      this.tmpTitle = ''
-      this.tmpProtocolTip = ''
+      this.tmpName = null
+      this.tmpTitle = null
+      this.tmpProtocolTip = null
       this.protocolTip = []
       this.protocolTipSet = []
       this.tmpInstructionCount = 0
       this.title = []
-      this.tmpTip = ''
-      this.question = ''
+      this.tmpTip = null
+      this.tmpquestion = null
       this.tip = []
-      this.tmpTip = ''
+      this.tmpTip = null
       this.tmpYes = true
       this.tmpNo = true
       this.tmpSubmit = false
       this.tmpProtocol = false
-      this.tmpTrue = ''
-      this.tmpFalse = ''
+      this.tmpTrue = null
+      this.tmpFalse = null
       this.tmpEditable = true
     },
     /* resets all data */
@@ -530,7 +539,7 @@ export default {
       this.protocols = []
       this.numberOfProtocols = 0
       this.numberOfSteps = 0
-      this.questions = []
+      this.question = []
       this.tips = []
       this.yesButton = []
       this.noButton = []
@@ -544,7 +553,7 @@ export default {
     },
     /* saves step as part of json */
     submitStep () {
-      this.questions = this.questions.concat(this.question)
+      this.question = this.question.concat(this.tmpquestion)
       this.addTip()
       this.tips.push(this.tip)
       this.yesButton = this.yesButton.concat(this.tmpYes)
