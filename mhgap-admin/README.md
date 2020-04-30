@@ -83,36 +83,3 @@ $ quasar dev -m cordova -T android
 $ quasar build
 ```
 Once built, the application can be deployed to Heroku, if wanted.
-
-### Patient Data and Video Links Database
-
-The patient data and video links database is hosted on Heroku with these credentials:
-
-```
-DB_HOST = 'us-cdbr-iron-east-01.cleardb.net'
-DB_USER = 'bb6c87f9bc3309'
-DB_PASSWORD = 'c867135e'
-DB_NAME = 'heroku_c1ea66fb35bb9fa'
-```
-
-### Patient Data and Video Links Server
-
-The code for the server to query the patient data and video links database is located in [this repo](https://github.com/isabellecarson/patient-data-server/tree/fec7f00dd5fed67d3edade0153e080b958b85c8d).
-
-The server is being hosted on Heroku at
-
-```
-https://fierce-savannah-61378.herokuapp.com
-```
-
-### Video S3 Bucket
-
-The videos for each page of the application are stored in an AWS S3 bucket with these credentials:
-
-```
-ID = 'AKIA5MSHNIMG4KOY5GWD'
-SECRET = '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'
-BUCKET_NAME = 'mhgap-videos'
-```
-
-The videos table in the database has links for each step for each disorder to a video in this bucket.
