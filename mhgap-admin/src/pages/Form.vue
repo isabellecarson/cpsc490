@@ -34,7 +34,7 @@
             <h2 class="yale-title">Patient Diagnosis</h2>
           </div>
           <div class="col">
-            <h4 class="body-font">{{json[disorder]['steps'][step]['questions']}}</h4>
+            <h4 class="body-font">{{json[disorder]['steps'][step]['question']}}</h4>
           </div>
           <div class="col">
             <p class="body-font" v-for="item in json[disorder]['steps'][step]['tips']" v-bind:key='item'>{{item}}</p>
