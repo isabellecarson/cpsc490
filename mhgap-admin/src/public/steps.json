@@ -1,0 +1,185 @@
+{
+    "psychosis": {
+        "steps": {
+            "Step 1": {
+                "questions": "Are there any other explanations for the symptoms?",
+                "tips": [
+                    "Assess signs and symptoms of delirium due to an acute physical condition, e.g. infection, celebral malaria, dehydration, metabolic abnormalities (such as hypoglycaemia or hyponatraemia); or medication side effects, e.g. due to some antimalarial medication or steroids."
+                ],
+                "yesButton": true,
+                "noButton": true,
+                "nextSubmit": false,
+                "nextProtocol": false,
+                "nextTrue": "Step 2",
+                "nextFalse": "Step 3",
+                "editable": true
+            },
+            "Step 2": {
+                "questions": null,
+                "tips": [
+                    "Assess and manage the acute physical condition, and refer to emergency services/specialist as needed."
+                ],
+                "yesButton": false,
+                "noButton": false,
+                "nextSubmit": true,
+                "nextProtocol": false,
+                "nextTrue": null,
+                "nextFalse": null,
+                "editable": true
+            },
+            "Step 3": {
+                "questions": "Are DEMENTIA, DEPRESSION, DRUG/ALCOHOL INTOXICATION OR WITHDRAWAL suspected?",
+                "tips": [
+                    "If that is the case, please consult a Mental Health Specialist."
+                ],
+                "yesButton": true,
+                "noButton": true,
+                "nextSubmit": false,
+                "nextProtocol": false,
+                "nextTrue": "Step 4",
+                "nextFalse": "Step 4",
+                "editable": true
+            },
+            "Step 4": {
+                "questions": "Is the person having an acute manic episode?",
+                "tips": [
+                    "Have several of the following symptoms occurred simultaneously,lasting for at least 1 week, and severely enough to interfere significantly with work and social activities or requiring confinement or hospitalization: Elevated or irritable mood: Decreased need for sleep, Increased activity, feeling of increased energy, increased talkativeness or rapid speech, Loss of normal social inhibitions such as sexual indiscretion, Impulsive or reckless behaviours such as excessive spending, making important decisions without planning, Being easily distracted, Unrealistically inflated self-esteem"
+                ],
+                "yesButton": true,
+                "noButton": true,
+                "nextSubmit": false,
+                "nextProtocol": false,
+                "nextTrue": "Step 5",
+                "nextFalse": "Step 6",
+                "editable": true
+            },
+            "Step 5": {
+                "questions": "BIPOLAR DISORDER Manic Episode is likely.",
+                "tips": [
+                    "Go to Protocol 1 (Manic episode in Bipolar disorder)"
+                ],
+                "yesButton": false,
+                "noButton": false,
+                "nextSubmit": true,
+                "nextProtocol": "Protocol 1",
+                "nextTrue": null,
+                "nextFalse": null,
+                "editable": true
+            },
+            "Step 6": {
+                "questions": "Does the person have psychosis?",
+                "tips": [
+                    "Does the person have at least two of the following: Delusions, fixed false beliefs not shared by others in the person’s culture, Hallucinations, hearing voices or seeing things that are not there, Disorganized speech and/or behaviour, e.g. incoherent/irrelevant speech such as mumbling or laughing to self, strange appearance, signs of self-neglect or appearing unkempt?"
+                ],
+                "yesButton": true,
+                "noButton": true,
+                "nextSubmit": false,
+                "nextProtocol": false,
+                "nextTrue": "Step 8",
+                "nextFalse": "Step 7",
+                "editable": true
+            },
+            "Step 7": {
+                "questions": null,
+                "tips": [
+                    "Consider consultation with specialist to review other possible causes of psychoses."
+                ],
+                "yesButton": false,
+                "noButton": false,
+                "nextSubmit": true,
+                "nextProtocol": false,
+                "nextTrue": null,
+                "nextFalse": null,
+                "editable": true
+            },
+            "Step 8": {
+                "questions": null,
+                "tips": [
+                    "PSYCHOSIS is likely",
+                    "Go to Protocol 2 (Psychosis)"
+                ],
+                "yesButton": false,
+                "noButton": false,
+                "nextSubmit": true,
+                "nextProtocol": "Protocol 2",
+                "nextTrue": null,
+                "nextFalse": null,
+                "editable": true
+            }
+        },
+        "protocols": {
+            "Protocol 1": {
+                "name": "Protocol 1 - Manic Episode in Bipolar Disorder",
+                "steps": [
+                    {
+                        "title": "Provide psychoeducation to the person and carers.",
+                        "tips": null 
+                        
+                    },
+                    {
+                        "title": "Pharmacological Intervention.",
+                        "tips": [
+                            "If patient is on antidepressants – DISCONTINUE to prevent further risk of mania.",
+                            "Begin treatment with lithium, valproate, carbamazepine, or with antipsychotics. Consider a short term (2-4 weeks maximum) benzodiazepine for behavioural disturbance or agitation."
+                        ]
+                    },
+                    {
+                        "title": "Promote functioning in daily activities.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Ensure safety of the person and safety of others.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Provide regular follow-up.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Support rehabilitation in the community.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Reduce stress and strengthen social supports.",
+                        "tips": null
+                    }
+                ]
+            },
+            "Protocol 2": {
+                "name": "Protocol 2 - Psychosis",
+                "steps": [
+                    {
+                        "title": "Provide psychoeducation to the person and carers.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Begin antipsychotic medication.",
+                        "tips": [ 
+                            "Start with a low dose within the therapeutic range and increase slowly to the lowest effective dose, in order to reduce the risk of side-effects." 
+                        ] 
+                    },
+                    {
+                        "title": "Promote functioning in daily activities.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Ensure safety of the person and safety of others.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Provide regular follow-up.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Support rehabilitation in the community.",
+                        "tips": null
+                    },
+                    {
+                        "title": "Reduce stress and strengthen social supports.",
+                        "tips": null
+                    }
+                ]
+            }
+        }
+    }
+}
