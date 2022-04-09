@@ -18,7 +18,7 @@
     "file-saver": "^2.0.2",
     "fs": "0.0.1-security",
     "localforage": "^1.7.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "quasar": "^1.0.0",
     "vue-i18n": "^8.0.0"
   },
